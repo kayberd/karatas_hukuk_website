@@ -14,23 +14,19 @@ Brochure + CMS + SEO + speed → static/SSG site.
 
 ## Framework
 
-| Option | Notes |
-| --- | --- |
-| **Astro** (recommended) | Lightest, content-focused, best Core Web Vitals, ideal for brochure + blog |
-| Next.js (App Router) | Bigger ecosystem; more than needed here |
-| WordPress (alt) | TR-familiar admin, client-friendly, but heavier + security upkeep |
+**Astro + Tailwind CSS** (decided).
 
-Recommendation: **Astro + Tailwind CSS**.
+- Lightest, content-focused, best Core Web Vitals
+- Ideal for brochure + blog
+- Static/SSG output; islands only where interactivity needed (forms, menus)
 
 ## CMS (client edits content)
 
-| Option | Notes |
-| --- | --- |
-| Sanity | Free tier, structured, good editor UX |
-| Decap CMS | Git-based, free, no DB |
-| Strapi | Self-hosted, more ops |
+**Sanity** (decided).
 
-Recommendation: **Sanity** (friendly admin) or **Decap** (zero-cost, Git-based).
+- Free tier, structured content, friendly editor UX (Sanity Studio)
+- Hosted dataset + GROQ queries; pull content into Astro at build time
+- Use `@sanity/client` in Astro; webhook deploy on publish
 
 ## Content model (CMS schema sketch)
 
