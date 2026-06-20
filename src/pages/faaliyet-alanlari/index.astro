@@ -1,0 +1,42 @@
+---
+import { getCollection } from "astro:content";
+import Base from "@/layouts/Base.astro";
+import PageHero from "@/components/PageHero.astro";
+import AreaCard from "@/components/AreaCard.astro";
+import InfoBlock from "@/components/InfoBlock.astro";
+
+const areas = (await getCollection("areas")).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+---
+
+<Base
+  title="Faaliyet Alanları"
+  description="Büromuzun hukuki hizmet sunduğu faaliyet alanları."
+>
+  <PageHero
+    title="Faaliyet Alanları"
+    subtitle="Danışmanlık ve dava takibi hizmeti sunduğumuz başlıca hukuk alanları."
+    crumbs={[
+      { label: "Anasayfa", href: "/" },
+      { label: "Faaliyet Alanları" },
+    ]}
+  />
+
+  <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        areas.map((area) => (
+          <AreaCard
+            title={area.data.title}
+            summary={area.data.summary}
+            icon={area.data.icon}
+            href={`/faaliyet-alanlari/${area.data.slug}`}
+          />
+        ))
+      }
+    </div>
+  </section>
+
+  <InfoBlock />
+</Base>

@@ -1,0 +1,35 @@
+---
+import { site } from "@/config/site";
+
+interface Props {
+  title?: string;
+  text?: string;
+}
+const {
+  title = "Hukuki sürecinizle ilgili bilgi almak ister misiniz?",
+  text = "Faaliyet alanlarımız ve sürece ilişkin sorularınız için iletişim kanallarımızdan bize ulaşabilirsiniz.",
+} = Astro.props;
+---
+
+<section class="bg-navy-950">
+  <div
+    class="mx-auto flex max-w-6xl flex-col items-start gap-6 px-4 py-12 sm:px-6 md:flex-row md:items-center md:justify-between"
+  >
+    <div class="max-w-2xl">
+      <h2 class="font-serif text-2xl font-semibold text-white">{title}</h2>
+      <p class="mt-2 text-sm leading-relaxed text-navy-100/80">{text}</p>
+    </div>
+    <div class="flex flex-wrap gap-3">
+      <a
+        href="/iletisim"
+        class="rounded-sm bg-gold-500 px-5 py-3 text-sm font-semibold text-navy-950 transition-colors hover:bg-gold-400"
+        >İletişim</a
+      >
+      <a
+        href={`tel:${site.phoneHref}`}
+        class="rounded-sm border border-white/30 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
+        >{site.phone}</a
+      >
+    </div>
+  </div>
+</section>

@@ -1,0 +1,65 @@
+---
+import { getCollection } from "astro:content";
+import Base from "@/layouts/Base.astro";
+import PageHero from "@/components/PageHero.astro";
+import ArticleCard from "@/components/ArticleCard.astro";
+import InfoBlock from "@/components/InfoBlock.astro";
+import { categoryLabels } from "@/config/site";
+import { articleCategories } from "@/content.config";
+
+export async function getStaticPaths() {
+  const articles = await getCollection("articles");
+  return articleCategories.map((category) => ({
+    params: { category },
+    props: {
+      category,
+      articles: articles
+        .filter((a) => a.data.category === category)
+        .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf()),
+    },
+  }));
+}
+
+const { category, articles } = Astro.props;
+const label = categoryLabels[category] ?? category;
+---
+
+<Base
+  title={label}
+  description={`${label} kategorisindeki bilgilendirme yazıları.`}
+>
+  <PageHero
+    title={label}
+    subtitle={`${label} kategorisindeki yazılar.`}
+    crumbs={[
+      { label: "Anasayfa", href: "/" },
+      { label: "Bilgi Bankası", href: "/bilgi-bankasi" },
+      { label },
+    ]}
+  />
+
+  <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+    {
+      articles.length === 0 ? (
+        <p class="text-anthracite/70">
+          Bu kategoride henüz yazı bulunmuyor.
+        </p>
+      ) : (
+        <div class="grid gap-5 md:grid-cols-3">
+          {articles.map((a) => (
+            <ArticleCard
+              title={a.data.title}
+              description={a.data.description}
+              date={a.data.date}
+              author={a.data.author}
+              category={a.data.category}
+              href={`/bilgi-bankasi/${a.data.slug}`}
+            />
+          ))}
+        </div>
+      )
+    }
+  </section>
+
+  <InfoBlock />
+</Base>

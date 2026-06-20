@@ -1,0 +1,29 @@
+---
+import { site } from "@/config/site";
+
+interface Props {
+  title: string;
+  description: string;
+  type?: "website" | "article";
+}
+
+const { title, description, type = "website" } = Astro.props;
+const fullTitle =
+  title === site.shortName ? title : `${title} | ${site.shortName}`;
+const canonical = new URL(Astro.url.pathname, site.url).href.replace(
+  /\/$/,
+  "",
+);
+---
+
+<title>{fullTitle}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+
+<meta property="og:type" content={type} />
+<meta property="og:site_name" content={site.buroName} />
+<meta property="og:title" content={fullTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+<meta property="og:locale" content="tr_TR" />
+<meta name="twitter:card" content="summary" />

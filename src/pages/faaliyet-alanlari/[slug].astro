@@ -1,0 +1,55 @@
+---
+import { getCollection, render } from "astro:content";
+import Base from "@/layouts/Base.astro";
+import PageHero from "@/components/PageHero.astro";
+import InfoBlock from "@/components/InfoBlock.astro";
+import Icon from "@/components/Icon.astro";
+
+export async function getStaticPaths() {
+  const areas = await getCollection("areas");
+  return areas.map((area) => ({
+    params: { slug: area.data.slug },
+    props: { area },
+  }));
+}
+
+const { area } = Astro.props;
+const d = area.data;
+const { Content } = await render(area);
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  serviceType: d.title,
+  description: d.summary,
+};
+---
+
+<Base title={d.title} description={d.summary} schema={schema}>
+  <PageHero
+    title={d.title}
+    subtitle={d.summary}
+    crumbs={[
+      { label: "Anasayfa", href: "/" },
+      { label: "Faaliyet Alanları", href: "/faaliyet-alanlari" },
+      { label: d.title },
+    ]}
+  />
+
+  <section class="mx-auto max-w-3xl px-4 py-16 sm:px-6">
+    <span
+      class="mb-6 flex h-14 w-14 items-center justify-center rounded-md bg-navy-900 text-gold-400"
+    >
+      <Icon name={d.icon} class="h-7 w-7" />
+    </span>
+    <div class="prose prose-neutral max-w-none">
+      <Content />
+    </div>
+    <p class="mt-8 text-xs text-anthracite/60">
+      Bu sayfa genel bilgilendirme amaçlıdır; hukuki danışmanlık niteliği
+      taşımaz.
+    </p>
+  </section>
+
+  <InfoBlock />
+</Base>

@@ -1,0 +1,61 @@
+---
+import { getCollection } from "astro:content";
+import Base from "@/layouts/Base.astro";
+import PageHero from "@/components/PageHero.astro";
+import ArticleCard from "@/components/ArticleCard.astro";
+import InfoBlock from "@/components/InfoBlock.astro";
+import { categoryLabels } from "@/config/site";
+
+const articles = (await getCollection("articles")).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+
+const usedCategories = [...new Set(articles.map((a) => a.data.category))];
+---
+
+<Base
+  title="Bilgi Bankası"
+  description="Hukuki süreçlere ilişkin anonimleştirilmiş, bilgilendirme amaçlı yazılar."
+>
+  <PageHero
+    title="Bilgi Bankası"
+    subtitle="Hukuki konulara ilişkin genel bilgilendirme yazıları. İçerikler bilgilendirme amaçlıdır."
+    crumbs={[{ label: "Anasayfa", href: "/" }, { label: "Bilgi Bankası" }]}
+  />
+
+  <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+    <nav aria-label="Kategoriler" class="mb-8 flex flex-wrap gap-2">
+      <span
+        class="rounded-full bg-navy-900 px-4 py-1.5 text-sm font-medium text-white"
+        >Tümü</span
+      >
+      {
+        usedCategories.map((c) => (
+          <a
+            href={`/bilgi-bankasi/kategori/${c}`}
+            class="rounded-full border border-navy-100 px-4 py-1.5 text-sm font-medium text-navy-800 transition-colors hover:border-gold-400 hover:text-bordo-700"
+          >
+            {categoryLabels[c] ?? c}
+          </a>
+        ))
+      }
+    </nav>
+
+    <div class="grid gap-5 md:grid-cols-3">
+      {
+        articles.map((a) => (
+          <ArticleCard
+            title={a.data.title}
+            description={a.data.description}
+            date={a.data.date}
+            author={a.data.author}
+            category={a.data.category}
+            href={`/bilgi-bankasi/${a.data.slug}`}
+          />
+        ))
+      }
+    </div>
+  </section>
+
+  <InfoBlock />
+</Base>

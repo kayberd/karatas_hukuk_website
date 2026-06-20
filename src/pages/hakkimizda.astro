@@ -1,0 +1,72 @@
+---
+import { getCollection } from "astro:content";
+import Base from "@/layouts/Base.astro";
+import PageHero from "@/components/PageHero.astro";
+import LawyerCard from "@/components/LawyerCard.astro";
+import InfoBlock from "@/components/InfoBlock.astro";
+import { site } from "@/config/site";
+
+const lawyers = (await getCollection("lawyers")).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+---
+
+<Base
+  title="Hakkımızda"
+  description={`${site.buroName} hakkında bilgi: faaliyet alanları, çalışma ilkeleri ve büro kimliği.`}
+>
+  <PageHero
+    title="Hakkımızda"
+    subtitle={`${site.buroName}, ${site.baro}'na kayıtlı bir avukatlık bürosudur.`}
+    crumbs={[{ label: "Anasayfa", href: "/" }, { label: "Hakkımızda" }]}
+  />
+
+  <section class="mx-auto max-w-3xl px-4 py-16 sm:px-6">
+    <div class="prose prose-neutral max-w-none">
+      <p>
+        {site.buroName}, çeşitli hukuk alanlarında bireylere ve kurumlara
+        danışmanlık ve dava takibi hizmeti sunmaktadır. Büromuz, hukuki
+        süreçlerin anlaşılır biçimde yürütülmesini ve müvekkillerin her aşamada
+        bilgilendirilmesini esas alır.
+      </p>
+      <h2>Çalışma ilkelerimiz</h2>
+      <ul>
+        <li>Dürüstlük ve şeffaflık</li>
+        <li>Meslek sırrına ve gizliliğe bağlılık</li>
+        <li>Her aşamada bilgilendirme</li>
+        <li>Hukuki çerçeveye uygun, ölçülü yaklaşım</li>
+      </ul>
+      <p>
+        Faaliyet alanlarımız arasında aile hukuku, ceza hukuku, ticaret hukuku,
+        gayrimenkul hukuku, iş hukuku ve tazminat hukuku gibi alanlar yer alır.
+        Tüm alanları
+        <a href="/faaliyet-alanlari">faaliyet alanları</a> sayfamızdan
+        inceleyebilirsiniz.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-navy-50/60">
+    <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+      <h2 class="font-serif text-2xl font-semibold text-navy-900">
+        Avukatlarımız
+      </h2>
+      <div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          lawyers.map((l) => (
+            <LawyerCard
+              name={l.data.name}
+              title={l.data.title}
+              university={l.data.university}
+              languages={l.data.languages}
+              photo={l.data.photo}
+              href={`/avukatlar/${l.data.slug}`}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <InfoBlock />
+</Base>

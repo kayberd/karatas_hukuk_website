@@ -1,0 +1,77 @@
+---
+import { site, nav, footerLegalLinks } from "@/config/site";
+import Icon from "@/components/Icon.astro";
+const year = new Date().getFullYear();
+---
+
+<footer class="mt-20 border-t border-navy-100 bg-navy-950 text-navy-100">
+  <div class="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-4">
+    <div class="md:col-span-2">
+      <p class="font-serif text-xl font-semibold text-white">
+        {site.buroName}
+      </p>
+      <p class="mt-1 text-sm text-navy-100/70">{site.baro}</p>
+      <address class="mt-4 space-y-2 text-sm not-italic text-navy-100/80">
+        <p class="flex items-start gap-2">
+          <Icon name="pin" class="mt-0.5 h-4 w-4 shrink-0 text-gold-400" />
+          <span>{site.address}</span>
+        </p>
+        <p class="flex items-center gap-2">
+          <Icon name="phone" class="h-4 w-4 shrink-0 text-gold-400" />
+          <a href={`tel:${site.phoneHref}`} class="hover:text-white"
+            >{site.phone}</a
+          >
+        </p>
+        <p class="flex items-center gap-2">
+          <Icon name="mail" class="h-4 w-4 shrink-0 text-gold-400" />
+          <a href={`mailto:${site.email}`} class="hover:text-white"
+            >{site.email}</a
+          >
+        </p>
+        <p class="text-navy-100/60">KEP: {site.kep}</p>
+        <p class="text-navy-100/60">Sicil No: {site.sicilNo}</p>
+      </address>
+    </div>
+
+    <div>
+      <h2 class="text-sm font-semibold tracking-wide text-white">Menü</h2>
+      <ul class="mt-4 space-y-2 text-sm">
+        {
+          nav.map((item) => (
+            <li>
+              <a href={item.href} class="text-navy-100/80 hover:text-white">
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <div>
+      <h2 class="text-sm font-semibold tracking-wide text-white">Yasal</h2>
+      <ul class="mt-4 space-y-2 text-sm">
+        {
+          footerLegalLinks.map((item) => (
+            <li>
+              <a href={item.href} class="text-navy-100/80 hover:text-white">
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+
+  <div class="border-t border-white/10">
+    <div
+      class="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-5 text-xs text-navy-100/60 sm:flex-row sm:items-center sm:justify-between sm:px-6"
+    >
+      <p>© {year} {site.buroName}. Tüm hakları saklıdır.</p>
+      <p>
+        Bu site bilgilendirme amaçlıdır; hukuki danışmanlık niteliği taşımaz.
+      </p>
+    </div>
+  </div>
+</footer>

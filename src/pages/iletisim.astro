@@ -1,0 +1,182 @@
+---
+import Base from "@/layouts/Base.astro";
+import PageHero from "@/components/PageHero.astro";
+import Icon from "@/components/Icon.astro";
+import { site } from "@/config/site";
+
+const formEndpoint = import.meta.env.PUBLIC_FORM_ENDPOINT ?? "";
+---
+
+<Base
+  title="İletişim"
+  description={`${site.buroName} iletişim bilgileri, adres ve iletişim formu.`}
+>
+  <PageHero
+    title="İletişim"
+    subtitle="Sorularınız için aşağıdaki kanallardan bize ulaşabilirsiniz."
+    crumbs={[{ label: "Anasayfa", href: "/" }, { label: "İletişim" }]}
+  />
+
+  <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+    <div class="grid gap-12 lg:grid-cols-2">
+      <div>
+        <h2 class="font-serif text-2xl font-semibold text-navy-900">
+          {site.buroName}
+        </h2>
+        <ul class="mt-6 space-y-4 text-sm">
+          <li class="flex items-start gap-3">
+            <Icon name="pin" class="mt-0.5 h-5 w-5 shrink-0 text-bordo-700" />
+            <span>{site.address}</span>
+          </li>
+          <li class="flex items-center gap-3">
+            <Icon name="phone" class="h-5 w-5 shrink-0 text-bordo-700" />
+            <a href={`tel:${site.phoneHref}`} class="hover:text-bordo-700"
+              >{site.phone}</a
+            >
+          </li>
+          <li class="flex items-center gap-3">
+            <Icon name="mail" class="h-5 w-5 shrink-0 text-bordo-700" />
+            <a href={`mailto:${site.email}`} class="hover:text-bordo-700"
+              >{site.email}</a
+            >
+          </li>
+          <li class="flex items-start gap-3 text-anthracite/70">
+            <Icon name="document" class="mt-0.5 h-5 w-5 shrink-0 text-bordo-700" />
+            <span>
+              KEP: {site.kep}<br />
+              Faks: {site.fax}<br />
+              Sicil No: {site.sicilNo}
+            </span>
+          </li>
+        </ul>
+
+        <div class="mt-8 overflow-hidden rounded-md border border-navy-100">
+          <iframe
+            title="Büro konumu"
+            src={site.mapEmbed}
+            width="100%"
+            height="280"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            style="border:0;"></iframe>
+        </div>
+      </div>
+
+      <div class="rounded-md border border-navy-100 bg-navy-50/40 p-6 sm:p-8">
+        <h2 class="font-serif text-2xl font-semibold text-navy-900">
+          İletişim Formu
+        </h2>
+        <p class="mt-2 text-sm text-anthracite/70">
+          Form yalnızca iletişim amaçlıdır. Lütfen kişisel veya dava
+          ayrıntılarını paylaşmayınız.
+        </p>
+
+        <form
+          id="contact-form"
+          class="mt-6 space-y-4"
+          method="POST"
+          action={formEndpoint}
+        >
+          <div class="hidden" aria-hidden="true">
+            <label
+              >Bu alanı boş bırakın
+              <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
+            </label>
+          </div>
+
+          <div>
+            <label for="name" class="block text-sm font-medium text-navy-900"
+              >Ad Soyad</label
+            >
+            <input
+              id="name"
+              name="name"
+              type="text"
+              required
+              class="mt-1 w-full rounded-sm border border-navy-100 bg-white px-3 py-2 text-sm"
+            />
+          </div>
+
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div>
+              <label for="email" class="block text-sm font-medium text-navy-900"
+                >E-posta</label
+              >
+              <input
+                id="email"
+                name="email"
+                type="email"
+                required
+                class="mt-1 w-full rounded-sm border border-navy-100 bg-white px-3 py-2 text-sm"
+              />
+            </div>
+            <div>
+              <label for="phone" class="block text-sm font-medium text-navy-900"
+                >Telefon</label
+              >
+              <input
+                id="phone"
+                name="phone"
+                type="tel"
+                class="mt-1 w-full rounded-sm border border-navy-100 bg-white px-3 py-2 text-sm"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label for="message" class="block text-sm font-medium text-navy-900"
+              >Mesajınız</label
+            >
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              required
+              class="mt-1 w-full rounded-sm border border-navy-100 bg-white px-3 py-2 text-sm"
+            ></textarea>
+          </div>
+
+          <label class="flex items-start gap-2 text-sm text-anthracite/80">
+            <input
+              type="checkbox"
+              name="kvkk_consent"
+              required
+              class="mt-1 h-4 w-4"
+            />
+            <span>
+              <a
+                href="/kvkk-aydinlatma"
+                class="font-medium text-bordo-700 underline">KVKK Aydınlatma Metni</a
+              >'ni okudum; iletişim talebimin değerlendirilmesi amacıyla
+              kişisel verilerimin işlenmesine açık rıza veriyorum.
+            </span>
+          </label>
+
+          <button
+            type="submit"
+            class="w-full rounded-sm bg-navy-900 px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-navy-800"
+            >Gönder</button
+          >
+
+          <p id="form-note" class="text-xs text-anthracite/60"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<script>
+  const form = document.getElementById(
+    "contact-form",
+  ) as HTMLFormElement | null;
+  const note = document.getElementById("form-note");
+  if (form && !form.getAttribute("action")) {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      if (note) {
+        note.textContent =
+          "Form gönderim altyapısı henüz yapılandırılmadı. Lütfen e-posta veya telefon ile ulaşın.";
+      }
+    });
+  }
+</script>

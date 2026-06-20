@@ -1,0 +1,162 @@
+---
+import { getCollection } from "astro:content";
+import Base from "@/layouts/Base.astro";
+import AreaCard from "@/components/AreaCard.astro";
+import ArticleCard from "@/components/ArticleCard.astro";
+import InfoBlock from "@/components/InfoBlock.astro";
+import Icon from "@/components/Icon.astro";
+import { site } from "@/config/site";
+
+const areas = (await getCollection("areas")).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+const topAreas = areas.slice(0, 6);
+
+const articles = (await getCollection("articles")).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+const latest = articles.slice(0, 3);
+---
+
+<Base
+  title={site.shortName}
+  description="Karataş Hukuk Bürosu — Ankara Barosu'na kayıtlı avukatlık bürosu. Faaliyet alanları ve hukuki bilgilendirme."
+>
+  <section class="relative overflow-hidden bg-navy-950">
+    <div
+      class="pointer-events-none absolute inset-0 opacity-10"
+      style="background-image: radial-gradient(circle at 80% 20%, #c9a85c 0, transparent 45%);"
+    >
+    </div>
+    <div
+      class="relative mx-auto flex max-w-6xl flex-col gap-6 px-4 py-20 sm:px-6 sm:py-28"
+    >
+      <span
+        class="inline-flex w-fit items-center gap-2 rounded-full border border-gold-500/40 px-3 py-1 text-xs uppercase tracking-widest text-gold-400"
+      >
+        <Icon name="scale" class="h-4 w-4" />
+        {site.baro}
+      </span>
+      <h1
+        class="max-w-3xl font-serif text-4xl font-semibold leading-tight text-white sm:text-5xl"
+      >
+        Hukuki süreçlerinizde bilgiye dayalı, ilkeli bir yaklaşım
+      </h1>
+      <p class="max-w-2xl text-lg leading-relaxed text-navy-100/80">
+        {site.buroName}, çeşitli hukuk alanlarında danışmanlık ve dava takibi
+        hizmeti sunar. Amacımız; süreci anlaşılır kılmak ve haklarınızı hukuki
+        çerçevede korumaktır.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a
+          href="/faaliyet-alanlari"
+          class="rounded-sm bg-gold-500 px-6 py-3 text-sm font-semibold text-navy-950 transition-colors hover:bg-gold-400"
+          >Faaliyet Alanları</a
+        >
+        <a
+          href="/iletisim"
+          class="rounded-sm border border-white/30 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
+          >İletişim</a
+        >
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+    <div class="flex items-end justify-between gap-4">
+      <div>
+        <p class="text-sm font-medium uppercase tracking-widest text-bordo-700">
+          Çalışma Alanları
+        </p>
+        <h2 class="mt-2 font-serif text-3xl font-semibold text-navy-900">
+          Faaliyet Alanlarımız
+        </h2>
+      </div>
+      <a
+        href="/faaliyet-alanlari"
+        class="hidden shrink-0 text-sm font-medium text-bordo-700 hover:underline sm:block"
+        >Tümünü gör</a
+      >
+    </div>
+    <div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        topAreas.map((area) => (
+          <AreaCard
+            title={area.data.title}
+            summary={area.data.summary}
+            icon={area.data.icon}
+            href={`/faaliyet-alanlari/${area.data.slug}`}
+          />
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="bg-navy-50/60">
+    <div class="mx-auto grid max-w-6xl gap-8 px-4 py-16 sm:px-6 md:grid-cols-3">
+      {
+        [
+          {
+            icon: "scale",
+            t: "İlkeli yaklaşım",
+            d: "Süreçler dürüstlük ve gizlilik ilkeleri çerçevesinde yürütülür.",
+          },
+          {
+            icon: "document",
+            t: "Bilgilendirme odaklı",
+            d: "Her aşamada hak ve yükümlülükleriniz hakkında bilgilendirme yapılır.",
+          },
+          {
+            icon: "shield",
+            t: "Meslek sırrına bağlılık",
+            d: "Müvekkil bilgileri Avukatlık Kanunu kapsamında korunur.",
+          },
+        ].map((item) => (
+          <div>
+            <span class="flex h-11 w-11 items-center justify-center rounded-md bg-navy-900 text-gold-400">
+              <Icon name={item.icon} class="h-6 w-6" />
+            </span>
+            <h3 class="mt-4 text-lg font-semibold text-navy-900">{item.t}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-anthracite/80">
+              {item.d}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+    <div class="flex items-end justify-between gap-4">
+      <div>
+        <p class="text-sm font-medium uppercase tracking-widest text-bordo-700">
+          Bilgi Bankası
+        </p>
+        <h2 class="mt-2 font-serif text-3xl font-semibold text-navy-900">
+          Güncel Yazılar
+        </h2>
+      </div>
+      <a
+        href="/bilgi-bankasi"
+        class="hidden shrink-0 text-sm font-medium text-bordo-700 hover:underline sm:block"
+        >Tümünü gör</a
+      >
+    </div>
+    <div class="mt-8 grid gap-5 md:grid-cols-3">
+      {
+        latest.map((a) => (
+          <ArticleCard
+            title={a.data.title}
+            description={a.data.description}
+            date={a.data.date}
+            author={a.data.author}
+            category={a.data.category}
+            href={`/bilgi-bankasi/${a.data.slug}`}
+          />
+        ))
+      }
+    </div>
+  </section>
+
+  <InfoBlock />
+</Base>

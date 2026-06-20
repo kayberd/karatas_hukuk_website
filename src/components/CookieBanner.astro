@@ -1,0 +1,41 @@
+---
+---
+
+<div
+  id="cookie-banner"
+  class="fixed inset-x-0 bottom-0 z-50 hidden border-t border-navy-100 bg-white shadow-lg"
+  role="dialog"
+  aria-live="polite"
+  aria-label="Çerez bilgilendirmesi"
+>
+  <div
+    class="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-4 sm:px-6 md:flex-row md:items-center md:justify-between"
+  >
+    <p class="text-sm text-navy-800">
+      Sitemizde temel işlevler için zorunlu çerezler kullanılır. Ayrıntılar için
+      <a href="/cerez-politikasi" class="font-medium text-bordo-700 underline"
+        >Çerez Politikası</a
+      >.
+    </p>
+    <div class="flex shrink-0 gap-2">
+      <button
+        id="cookie-accept"
+        class="rounded-sm bg-navy-900 px-4 py-2 text-sm font-medium text-white hover:bg-navy-800"
+        >Tamam</button
+      >
+    </div>
+  </div>
+</div>
+
+<script>
+  const KEY = "cookie-consent-v1";
+  const banner = document.getElementById("cookie-banner");
+  const accept = document.getElementById("cookie-accept");
+  if (banner && !localStorage.getItem(KEY)) {
+    banner.classList.remove("hidden");
+  }
+  accept?.addEventListener("click", () => {
+    localStorage.setItem(KEY, "1");
+    banner?.classList.add("hidden");
+  });
+</script>

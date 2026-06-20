@@ -1,0 +1,78 @@
+---
+import "@/styles/global.css";
+import SEO from "@/components/SEO.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import CookieBanner from "@/components/CookieBanner.astro";
+import { site } from "@/config/site";
+
+interface Props {
+  title: string;
+  description: string;
+  type?: "website" | "article";
+  schema?: Record<string, unknown> | Record<string, unknown>[];
+}
+
+const { title, description, type = "website", schema } = Astro.props;
+
+const orgSchema = {
+  "@context": "https://schema.org",
+  "@type": ["LegalService", "Attorney"],
+  name: site.buroName,
+  url: site.url,
+  email: site.email,
+  telephone: site.phone,
+  areaServed: "TR",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: site.address,
+    addressCountry: "TR",
+  },
+};
+
+const schemas = [orgSchema, ...(schema ? [schema].flat() : [])];
+
+const PLAUSIBLE_DOMAIN = import.meta.env.PUBLIC_PLAUSIBLE_DOMAIN;
+---
+
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="robots" content="index, follow" />
+    <SEO title={title} description={description} type={type} />
+    {
+      schemas.map((s) => (
+        <script
+          type="application/ld+json"
+          set:html={JSON.stringify(s)}
+        />
+      ))
+    }
+    {
+      PLAUSIBLE_DOMAIN && (
+        <script
+          defer
+          data-domain={PLAUSIBLE_DOMAIN}
+          src="https://plausible.io/js/script.js"
+        />
+      )
+    }
+  </head>
+  <body class="flex min-h-screen flex-col">
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-sm focus:bg-navy-900 focus:px-4 focus:py-2 focus:text-white"
+      >İçeriğe geç</a
+    >
+    <Header />
+    <main id="main" class="flex-1">
+      <slot />
+    </main>
+    <Footer />
+    <CookieBanner />
+  </body>
+</html>

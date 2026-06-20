@@ -1,0 +1,53 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@import "@fontsource/lora/400.css";
+@import "@fontsource/lora/500.css";
+@import "@fontsource/lora/600.css";
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
+
+@theme {
+  --color-navy-50: #eef1f6;
+  --color-navy-100: #d3dae8;
+  --color-navy-700: #1f2d4d;
+  --color-navy-800: #16213b;
+  --color-navy-900: #0f1830;
+  --color-navy-950: #0a1022;
+
+  --color-bordo-600: #7a1f2b;
+  --color-bordo-700: #641821;
+  --color-bordo-800: #4f131a;
+
+  --color-gold-400: #c9a85c;
+  --color-gold-500: #b8923f;
+  --color-gold-600: #9a7830;
+
+  --color-anthracite: #2b2f36;
+
+  --font-serif: "Lora", Georgia, "Times New Roman", serif;
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-anthracite);
+  background-color: #ffffff;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-serif);
+}
+
+:where(a, button, input, textarea, select):focus-visible {
+  outline: 2px solid var(--color-gold-500);
+  outline-offset: 2px;
+}

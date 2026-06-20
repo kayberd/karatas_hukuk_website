@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://karatashukuk.av.tr/sitemap-index.xml

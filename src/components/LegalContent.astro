@@ -1,0 +1,35 @@
+---
+import { getCollection, render } from "astro:content";
+import PageHero from "@/components/PageHero.astro";
+import { formatDate } from "@/lib/format";
+
+interface Props {
+  legalKey: "kvkk-aydinlatma" | "gizlilik" | "cerez-politikasi";
+}
+const { legalKey } = Astro.props;
+
+const entries = await getCollection("legal");
+const entry = entries.find((e) => e.data.key === legalKey);
+if (!entry) {
+  throw new Error(`Legal content not found: ${legalKey}`);
+}
+const { Content } = await render(entry);
+---
+
+<PageHero
+  title={entry.data.title}
+  crumbs={[{ label: "Anasayfa", href: "/" }, { label: entry.data.title }]}
+/>
+
+<section class="mx-auto max-w-3xl px-4 py-16 sm:px-6">
+  {
+    entry.data.updated && (
+      <p class="mb-6 text-xs text-anthracite/60">
+        Son güncelleme: {formatDate(entry.data.updated)}
+      </p>
+    )
+  }
+  <div class="prose prose-neutral max-w-none">
+    <Content />
+  </div>
+</section>

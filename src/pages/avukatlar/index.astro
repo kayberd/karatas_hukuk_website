@@ -1,0 +1,41 @@
+---
+import { getCollection } from "astro:content";
+import Base from "@/layouts/Base.astro";
+import PageHero from "@/components/PageHero.astro";
+import LawyerCard from "@/components/LawyerCard.astro";
+import InfoBlock from "@/components/InfoBlock.astro";
+
+const lawyers = (await getCollection("lawyers")).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+---
+
+<Base
+  title="Avukatlar"
+  description="Büromuzda görev yapan avukatlar ve baro kayıt bilgileri."
+>
+  <PageHero
+    title="Avukatlar"
+    subtitle="Büromuzda görev yapan avukatlara ilişkin mevzuata uygun bilgiler."
+    crumbs={[{ label: "Anasayfa", href: "/" }, { label: "Avukatlar" }]}
+  />
+
+  <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        lawyers.map((l) => (
+          <LawyerCard
+            name={l.data.name}
+            title={l.data.title}
+            university={l.data.university}
+            languages={l.data.languages}
+            photo={l.data.photo}
+            href={`/avukatlar/${l.data.slug}`}
+          />
+        ))
+      }
+    </div>
+  </section>
+
+  <InfoBlock />
+</Base>
