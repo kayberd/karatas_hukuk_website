@@ -3,7 +3,7 @@ title: Trafik Kazasında Maddi ve Manevi Tazminat
 slug: trafik-kazasi-tazminat
 description: Trafik kazası sonrası talep edilebilecek tazminat türleri ve başvuru yollarına ilişkin bilgilendirme.
 date: 2025-01-20
-author: Av. Ad Soyad
+author: Av. M. Ruşen Karataş
 category: tazminat
 faq:
   - q: Trafik kazasında hangi tazminatlar istenebilir?

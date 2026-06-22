@@ -1,18 +1,17 @@
 ---
-name: Av. Ad Soyad Karataş
+name: Av. M. Ruşen Karataş
 title: Kurucu Avukat
-slug: ad-soyad-karatas
+slug: rusen-karatas
 baro: Ankara Barosu
-baroNo: "00000"
-sicilNo: "00000"
-startDate: "2008"
-university: Ankara Üniversitesi Hukuk Fakültesi
+university: Başkent Üniversitesi Hukuk Fakültesi
 languages:
   - Türkçe
   - İngilizce
 order: 1
 ---
 
-Av. Ad Soyad Karataş, 2008 yılından bu yana avukatlık mesleğini icra etmektedir. Ankara Barosu'na kayıtlı olarak çalışmakta; aile hukuku, ceza hukuku ve tazminat hukuku başta olmak üzere çeşitli faaliyet alanlarında hukuki hizmet vermektedir.
+Av. M. Ruşen Karataş, Başkent Üniversitesi Hukuk Fakültesi mezunu olup Ankara Barosu'na kayıtlı olarak avukatlık faaliyetlerini sürdürmektedir. Ankara Medipol Üniversitesi'nde hukuk alanında yüksek lisans eğitimine devam etmektedir.
 
-Mesleki çalışmalarını dürüstlük, gizlilik ve müvekkil haklarının korunması ilkeleri çerçevesinde yürütmektedir.
+Akademik hukuk ve idari yargı başta olmak üzere; ceza hukuku, taşınmaz hukuku, yabancılar hukuku, iş hukuku ve aile hukuku alanlarında müvekkillerine hukuki danışmanlık ve dava takibi hizmeti sunmaktadır.
+
+Teorik birikimini sahada edindiği pratik deneyimle harmanlayan Karataş, müvekkillerinin hukuki süreçlerini şeffaf iletişim ve kararlı takip anlayışıyla yönetmektedir.

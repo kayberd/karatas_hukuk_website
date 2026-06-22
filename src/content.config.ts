@@ -34,6 +34,7 @@ const articleCategories = [
   "ceza",
   "aile",
   "tazminat",
+  "idari-yargi",
   "genel-hukuk",
 ] as const;
 

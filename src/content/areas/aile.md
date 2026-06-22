@@ -1,21 +1,13 @@
 ---
 title: Aile Hukuku
 slug: aile
-summary: Boşanma, nafaka, velayet, mal rejimi ve aile içi anlaşmazlıklara ilişkin hukuki süreçler.
+summary: Boşanma, velayet, nafaka ve mal rejimi tasfiyesi ile 6284 sayılı Kanun kapsamında koruma süreçleri.
 icon: family
-order: 1
+order: 7
 ---
 
-Aile hukuku; evlilik, boşanma, nafaka, velayet ve mal paylaşımı gibi kişinin özel hayatını yakından ilgilendiren konuları kapsar. Bu alandaki süreçler hem hukuki hem de duygusal yönüyle hassasiyet gerektirir.
+Aile hukuku, teknik bilginin yanında yüksek bir empati ve mahremiyet yönetimi gerektirir. Anlaşmalı ve çekişmeli boşanma davaları, velayet uyuşmazlıkları ve nafaka talepleri süreçlerinde, tarafların ve özellikle çocukların üstün yararını koruyan bir yaklaşım benimsiyoruz. Karmaşık mal rejimi tasfiyesi ve ziynet eşyası alacağı davalarında, ekonomik hakların eksiksiz teslim edilmesi için titiz bir dosya hazırlığı yapıyoruz.
 
-## Çalışılan başlıca konular
+Boşanma sonrası süreçlerin yönetimi, nafaka artırım veya kaldırma davaları ile kişisel ilişkinin tesisi gibi konularda, aile kurumunun hassasiyetini gözeterek hukuki destek sağlıyoruz. Ayrıca soybağının reddi, babalık davaları ve evlat edinme süreçleri gibi teknik ve duygusal boyutu yüksek davalarda, sürecin en sağlıklı şekilde yürütülmesini esas alıyoruz.
 
-- Anlaşmalı ve çekişmeli boşanma davaları
-- Nafaka (yoksulluk, iştirak, tedbir) talepleri
-- Velayet ve kişisel ilişki düzenlemesi
-- Edinilmiş mallara katılma ve mal rejimi tasfiyesi
-- Aile konutu ve koruma tedbirleri
-
-## Sürece yaklaşım
-
-Aile hukukuna ilişkin uyuşmazlıklarda öncelikle tarafların hak ve yükümlülükleri değerlendirilir, mümkün olan hallerde uzlaşma yolları araştırılır. Dava yolunun zorunlu olduğu durumlarda ise sürecin her aşaması hakkında bilgilendirme yapılır.
+Yabancı unsurlu evliliklerin Türkiye'de tanıma ve tenfiz işlemleri, şiddet mağduru bireyler için 6284 sayılı Kanun kapsamında koruma ve uzaklaştırma kararlarının alınması da uzmanlık alanımız dahilindedir. Aile hukukuna ilişkin tüm uyuşmazlıklarda, müvekkillerimize sadece bir hukukçu olarak değil, zorlu bir dönemi en az hasarla atlatmalarını sağlayan stratejik bir yol arkadaşı olarak destek veriyoruz.

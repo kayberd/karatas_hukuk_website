@@ -3,7 +3,7 @@ title: Avukata Vekaletname Verirken Dikkat Edilmesi Gerekenler
 slug: vekaletname-turleri
 description: Genel ve özel vekaletname ayrımı ile vekaletname düzenlenirken dikkat edilecek hususlar.
 date: 2024-12-15
-author: Av. Ad Soyad Karataş
+author: Av. M. Ruşen Karataş
 category: genel-hukuk
 faq:
   - q: Boşanma davası için özel vekaletname gerekir mi?

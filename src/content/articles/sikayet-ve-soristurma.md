@@ -3,7 +3,7 @@ title: Soruşturma Aşamasında Şüphelinin Hakları
 slug: sorusturma-asamasinda-supheli-haklari
 description: Ceza soruşturmasında ifade, müdafi yardımı ve susma hakkı gibi temel hakların genel açıklaması.
 date: 2025-02-04
-author: Av. Ad Soyad Karataş
+author: Av. M. Ruşen Karataş
 category: ceza
 faq:
   - q: İfade verirken avukat bulundurmak zorunlu mu?

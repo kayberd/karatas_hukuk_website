@@ -1,18 +1,16 @@
 export const site = {
-  buroName: "Karataş Hukuk Bürosu",
+  buroName: "Karataş Hukuk ve Danışmanlık",
   shortName: "Karataş Hukuk",
-  legalIdentity: "Av. ... Karataş Hukuk Bürosu",
+  legalIdentity: "Av. M. Ruşen Karataş",
   baro: "Ankara Barosu",
-  sicilNo: "00000",
-  address: "Örnek Mah. Örnek Cad. No: 0/0, Çankaya / Ankara",
-  phone: "+90 312 000 00 00",
-  phoneHref: "+903120000000",
-  fax: "+90 312 000 00 01",
-  email: "info@karatashukuk.av.tr",
-  kep: "karatashukuk@hs01.kep.tr",
+  address:
+    "Kocatepe Mah. Mithatpaşa Cad. Ahenk Apt. No: 62/8, Çankaya / Ankara",
+  phone: "+90 507 533 82 02",
+  phoneHref: "+905075338202",
+  email: "avrusenkaratas@gmail.com",
   mapEmbed:
-    "https://www.google.com/maps?q=Ankara+Adliyesi&output=embed",
-  url: "https://karatashukuk.av.tr",
+    "https://www.google.com/maps?q=Kocatepe+Mah.+Mithatpa%C5%9Fa+Cad.+%C3%87ankaya+Ankara&output=embed",
+  url: "https://rusenkaratas.av.tr",
 } as const;
 
 export const nav = [
@@ -28,6 +26,7 @@ export const categoryLabels: Record<string, string> = {
   ceza: "Ceza Hukuku",
   aile: "Aile Hukuku",
   tazminat: "Tazminat Hukuku",
+  "idari-yargi": "İdari Yargı",
   "genel-hukuk": "Genel Hukuk",
 };
 

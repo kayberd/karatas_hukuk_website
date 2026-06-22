@@ -3,7 +3,7 @@ title: Anlaşmalı Boşanma Süreci Nasıl İşler?
 slug: anlasmali-bosanma-sureci
 description: Anlaşmalı boşanmanın şartları, protokolün içeriği ve dava aşamalarına ilişkin genel bilgilendirme.
 date: 2025-03-12
-author: Av. Ad Soyad Karataş
+author: Av. M. Ruşen Karataş
 category: aile
 faq:
   - q: Anlaşmalı boşanma ne kadar sürer?
