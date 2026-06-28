@@ -54,10 +54,10 @@ const schema = faqSchema ? [articleSchema, faqSchema] : articleSchema;
     title={d.title}
     crumbs={[
       { label: "Anasayfa", href: "/" },
-      { label: "Bilgi Bankası", href: "/bilgi-bankasi" },
+      { label: "Blog", href: "/blog" },
       {
         label: categoryLabels[d.category] ?? d.category,
-        href: `/bilgi-bankasi/kategori/${d.category}`,
+        href: `/blog/kategori/${d.category}`,
       },
     ]}
   />
@@ -65,7 +65,7 @@ const schema = faqSchema ? [articleSchema, faqSchema] : articleSchema;
   <article class="mx-auto max-w-3xl px-4 py-16 sm:px-6">
     <div class="flex flex-wrap items-center gap-3 text-sm text-anthracite/70">
       <a
-        href={`/bilgi-bankasi/kategori/${d.category}`}
+        href={`/blog/kategori/${d.category}`}
         class="rounded-full bg-bordo-700/10 px-3 py-1 font-medium text-bordo-700"
         >{categoryLabels[d.category] ?? d.category}</a
       >

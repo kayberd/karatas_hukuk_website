@@ -7,6 +7,7 @@ university: Başkent Üniversitesi Hukuk Fakültesi
 languages:
   - Türkçe
   - İngilizce
+photo: ../../assets/rusen-karatas.jpeg
 order: 1
 ---
 

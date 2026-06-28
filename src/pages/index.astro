@@ -130,14 +130,14 @@ const latest = articles.slice(0, 3);
     <div class="flex items-end justify-between gap-4">
       <div>
         <p class="text-sm font-medium uppercase tracking-widest text-bordo-700">
-          Bilgi Bankası
+          Blog
         </p>
         <h2 class="mt-2 font-serif text-3xl font-semibold text-navy-900">
           Güncel Yazılar
         </h2>
       </div>
       <a
-        href="/bilgi-bankasi"
+        href="/blog"
         class="hidden shrink-0 text-sm font-medium text-bordo-700 hover:underline sm:block"
         >Tümünü gör</a
       >
@@ -151,7 +151,7 @@ const latest = articles.slice(0, 3);
             date={a.data.date}
             author={a.data.author}
             category={a.data.category}
-            href={`/bilgi-bankasi/${a.data.slug}`}
+            href={`/blog/${a.data.slug}`}
           />
         ))
       }

@@ -14,13 +14,13 @@ const usedCategories = [...new Set(articles.map((a) => a.data.category))];
 ---
 
 <Base
-  title="Bilgi Bankası"
+  title="Blog"
   description="Hukuki süreçlere ilişkin anonimleştirilmiş, bilgilendirme amaçlı yazılar."
 >
   <PageHero
-    title="Bilgi Bankası"
+    title="Blog"
     subtitle="Hukuki konulara ilişkin genel bilgilendirme yazıları. İçerikler bilgilendirme amaçlıdır."
-    crumbs={[{ label: "Anasayfa", href: "/" }, { label: "Bilgi Bankası" }]}
+    crumbs={[{ label: "Anasayfa", href: "/" }, { label: "Blog" }]}
   />
 
   <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
@@ -32,7 +32,7 @@ const usedCategories = [...new Set(articles.map((a) => a.data.category))];
       {
         usedCategories.map((c) => (
           <a
-            href={`/bilgi-bankasi/kategori/${c}`}
+            href={`/blog/kategori/${c}`}
             class="rounded-full border border-navy-100 px-4 py-1.5 text-sm font-medium text-navy-800 transition-colors hover:border-gold-400 hover:text-bordo-700"
           >
             {categoryLabels[c] ?? c}
@@ -50,7 +50,7 @@ const usedCategories = [...new Set(articles.map((a) => a.data.category))];
             date={a.data.date}
             author={a.data.author}
             category={a.data.category}
-            href={`/bilgi-bankasi/${a.data.slug}`}
+            href={`/blog/${a.data.slug}`}
           />
         ))
       }

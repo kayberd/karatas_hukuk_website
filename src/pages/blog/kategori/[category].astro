@@ -33,7 +33,7 @@ const label = categoryLabels[category] ?? category;
     subtitle={`${label} kategorisindeki yazılar.`}
     crumbs={[
       { label: "Anasayfa", href: "/" },
-      { label: "Bilgi Bankası", href: "/bilgi-bankasi" },
+      { label: "Blog", href: "/blog" },
       { label },
     ]}
   />
@@ -53,7 +53,7 @@ const label = categoryLabels[category] ?? category;
               date={a.data.date}
               author={a.data.author}
               category={a.data.category}
-              href={`/bilgi-bankasi/${a.data.slug}`}
+              href={`/blog/${a.data.slug}`}
             />
           ))}
         </div>

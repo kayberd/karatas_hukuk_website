@@ -27,7 +27,7 @@ npm run preview
 | --- | --- |
 | `src/content/lawyers/` | Avukat profilleri (yalnızca mevzuata uygun alanlar) |
 | `src/content/areas/` | Faaliyet alanları |
-| `src/content/articles/` | Bilgi bankası yazıları (kategori + opsiyonel FAQ) |
+| `src/content/articles/` | Blog yazıları (kategori + opsiyonel FAQ) |
 | `src/content/legal/` | KVKK / gizlilik / çerez metinleri |
 | `src/config/site.ts` | Büro bilgileri, menü, kategori etiketleri |
 
@@ -35,7 +35,7 @@ npm run preview
 
 `/`, `/hakkimizda`, `/avukatlar` + `/avukatlar/[slug]`,
 `/faaliyet-alanlari` + `/faaliyet-alanlari/[slug]`,
-`/bilgi-bankasi` + `/bilgi-bankasi/[slug]` + `/bilgi-bankasi/kategori/[category]`,
+`/blog` + `/blog/[slug]` + `/blog/kategori/[category]`,
 `/iletisim`, `/kvkk-aydinlatma`, `/gizlilik`, `/cerez-politikasi`, `404`.
 
 ## Uyum (kritik)
