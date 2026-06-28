@@ -158,5 +158,70 @@ const latest = articles.slice(0, 3);
     </div>
   </section>
 
+  <section class="bg-navy-50/60">
+    <div class="mx-auto max-w-4xl px-4 py-16 sm:px-6">
+      <p class="text-sm font-medium uppercase tracking-widest text-bordo-700">
+        Sıkça Sorulan Sorular
+      </p>
+      <h2 class="mt-2 font-serif text-3xl font-semibold text-navy-900">
+        Merak Edilenler
+      </h2>
+      <p class="mt-3 text-anthracite/80">
+        Müvekkillerimizin sıkça sorduğu sorular ve yanıtları
+      </p>
+      <div class="mt-8 space-y-3">
+        {
+          [
+            {
+              q: "Çankaya'da avukata nasıl başvurabilirim?",
+              a: "Çankaya bölgesinde avukata başvurmak için büromuzla telefon veya e-posta aracılığıyla iletişime geçerek randevu alabilirsiniz. İlk görüşmede hukuki sorununuz değerlendirilir ve süreç hakkında bilgilendirme yapılır. Büromuz Kocatepe Mahallesi, Mithatpaşa Caddesi Ahenk Apartmanı'nda yer almaktadır.",
+            },
+            {
+              q: "Kızılay ve çevresinde avukatlık hizmeti veriyor musunuz?",
+              a: "Evet, büromuz Kızılay, Çankaya ve çevre bölgelerde ikamet eden veya bu bölgede hukuki sorun yaşayan müvekkillerine avukatlık ve hukuki danışmanlık hizmeti sunmaktadır. Büromuz Çankaya/Ankara'nın merkezi konumunda, Kocatepe Mahallesi'nde bulunmaktadır.",
+            },
+            {
+              q: "Hangi hukuk alanlarında hizmet veriyorsunuz?",
+              a: "Ceza hukuku, aile hukuku (boşanma, velayet, nafaka), tazminat hukuku, idari yargı, taşınmaz hukuku, iş hukuku, yabancılar hukuku ve akademik danışmanlık alanlarında avukatlık ve danışmanlık hizmeti sunmaktayız.",
+            },
+            {
+              q: "Ankara Adliyesi'nde dava takibi yapıyor musunuz?",
+              a: "Evet, büromuz Ankara Adliyesi başta olmak üzere Ankara genelindeki adliyelerde dava takibi yapmaktadır. Ceza mahkemeleri, aile mahkemeleri, asliye hukuk, iş mahkemeleri ve icra dairelerinde müvekkillerimizi temsil etmekteyiz.",
+            },
+            {
+              q: "İlk görüşmede ne yapılır?",
+              a: "İlk görüşmede hukuki sorununuz dinlenir, mevcut bilgi ve belgeler incelenir. Ardından ilgili mevzuat çerçevesinde hukuki değerlendirme yapılarak sürecin nasıl ilerleyeceği hakkında bilgilendirme yapılır. Bu görüşme, avukat-müvekkil ilişkisinin kurulup kurulmayacağına karar verilen aşamadır.",
+            },
+            {
+              q: "Arabuluculuk hizmeti veriyor musunuz?",
+              a: "İş hukuku ve ticaret hukuku gibi zorunlu arabuluculuk kapsamındaki uyuşmazlıklarda müvekkillerimize arabuluculuk süreçlerinde avukat olarak destek sağlamaktayız. Arabuluculuk, mahkeme dışında tarafların uzlaşmasını hedefleyen alternatif bir uyuşmazlık çözüm yöntemidir.",
+            },
+            {
+              q: "Randevu almadan gelebilir miyim?",
+              a: "Randevu alınması tavsiye edilmektedir. Bu sayede size yeterli zaman ayrılabilir ve hukuki sorununuz detaylıca değerlendirilebilir. Randevu için " + site.phone + " numaralı telefonu arayabilir veya web sitemizdeki iletişim formunu doldurabilirsiniz.",
+            },
+            {
+              q: "Online hukuki danışmanlık alabilir miyim?",
+              a: "Evet, Ankara dışında ikamet eden veya büroya gelme imkanı olmayan müvekkillerimize telefon veya görüntülü görüşme aracılığıyla hukuki danışmanlık hizmeti sunulmaktadır. Detaylı bilgi için iletişim kanallarımızdan bize ulaşabilirsiniz.",
+            },
+          ].map((item) => (
+            <details class="group rounded-sm border border-navy-900/10 bg-white">
+              <summary class="flex cursor-pointer items-center justify-between gap-4 px-5 py-4 font-medium text-navy-900 [&::-webkit-details-marker]:hidden">
+                {item.q}
+                <Icon
+                  name="chevron-down"
+                  class="h-5 w-5 shrink-0 text-bordo-700 transition-transform group-open:rotate-180"
+                />
+              </summary>
+              <p class="border-t border-navy-900/10 px-5 py-4 text-sm leading-relaxed text-anthracite/80">
+                {item.a}
+              </p>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
   <InfoBlock />
 </Base>
