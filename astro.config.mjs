@@ -4,7 +4,7 @@ import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
-  site: "https://karatashukuk.av.tr",
+  site: "https://rusenkaratas.av.tr",
   trailingSlash: "never",
   integrations: [sitemap()],
   vite: {
